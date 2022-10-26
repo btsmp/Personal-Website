@@ -1,15 +1,16 @@
 import { SectionCardsTechs } from '../components/SectionCardsTechs'
 import { Apresentation } from '../components/Apresetation'
 import { SectionWhite } from '../components/SectionWhite'
+import { CardProject } from '../components/CardProject'
 import { MeAndSocial } from '../components/MeAndSocial'
 import { Section } from '../components/Section'
+import { Footer } from '../components/Footer'
 import { Header } from '../components/Header'
 import { Title } from '../components/Title'
 import { Fade } from 'react-awesome-reveal'
 import { About } from '../components/About'
 import Image from 'next/image'
 import Head from 'next/head'
-import { CardProject } from '../components/CardProject'
 
 
 const Home = () => {
@@ -60,10 +61,11 @@ const Home = () => {
             <CardProject />
             <CardProject />
             <CardProject />
-
           </div>
         </Section>
       </main>
+
+      <Footer />
 
     </div>
   )
