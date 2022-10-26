@@ -19,7 +19,7 @@ const Home = () => {
     <div className="min-h-screen font-sans bg-[#0A0A0A] text-white overflow-x-hidden">
       <Head>
         <title>Bruno Sampaio</title>
-        <link rel="icon" href="/ico.ico" />
+        <link rel="icon" href="/codefolder.ico" />
       </Head>
 
       <Header />
