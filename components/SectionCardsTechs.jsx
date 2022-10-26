@@ -68,7 +68,7 @@ export function SectionCardsTechs() {
     <div className=' flex flex-wrap  items-center justify-center gap-6 px-10'>
 
       {techs.map(tech => (
-        <Fade>
+        <Fade key={tech.name}>
           <CardTech key={tech.name} name={tech.name} icon={tech.icon} />
         </Fade>
       ))}
