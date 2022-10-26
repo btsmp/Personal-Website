@@ -1,11 +1,16 @@
-import { AiOutlineLinkedin, AiFillGithub, AiOutlineWhatsApp, AiOutlineDownload } from 'react-icons/ai'
+import { SectionCardsTechs } from '../components/SectionCardsTechs'
 import { Apresentation } from '../components/Apresetation'
-import { Profile } from '../components/Profile'
+import { SectionWhite } from '../components/SectionWhite'
+import { MeAndSocial } from '../components/MeAndSocial'
+import { Section } from '../components/Section'
 import { Header } from '../components/Header'
+import { Title } from '../components/Title'
+import { Fade } from 'react-awesome-reveal'
+import { About } from '../components/About'
 import Image from 'next/image'
 import Head from 'next/head'
-import { SectionCardsTechs } from '../components/SectionCardsTechs'
-import { Fade } from 'react-awesome-reveal'
+import pokedexImg from '../assets/pokedex.png'
+import { BsArrowRight } from 'react-icons/bs'
 
 const Home = () => {
 
@@ -13,15 +18,18 @@ const Home = () => {
     <div className="min-h-screen font-sans bg-[#0A0A0A] text-white overflow-x-hidden">
       <Head>
         <title>Bruno Sampaio</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/ico.ico" />
       </Head>
 
       <Header />
       <main className='flex flex-col py-14  items-center justify-center w-full h-full gap-32'>
-        <section id='home' className='flex flex-col py-[30vh]  items-center justify-center w-full relative'>
+        <section
+          id='home'
+          className='flex flex-col py-[30vh]  items-center justify-center w-full relative'
+        >
+
           <Apresentation />
           <div className='absolute -z-[-2] opacity-30 md:right-28 md:w-[400px] md:h-[400px] w-64 h-64'>
-
             <Image
               src='/programming.svg'
               alt="Ilustração de uma pessoa no computador"
@@ -29,47 +37,53 @@ const Home = () => {
               height={400}
             />
           </div>
+
         </section>
-        <section id="about" className='bg-white text-[#0A0A0A] w-full flex flex-col-reverse md:flex-row items-center  justify-center sm:justify-between gap-16 px-0 sm:px-36 py-28'>
+        <SectionWhite id='about'>
           <Fade triggerOnce>
-            <Fade triggerOnce direction='left '>
-              <div className='md:w-[50vw] px-7 sm:px-0'>
-                <h1 className='font-bold text-4xl mb-10 mt-[-30px]'>Sobre Bruno</h1>
-                <p className=' text-lg mt-4 text-justify'>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et tempus sapien. Maecenas cursus facilisis massa eu porta. Ut porta enim laoreet aliquam condimentum. In vestibulum dolor sit amet nibh maximus tincidunt. Vestibulum tincidunt arcu in urna vulputate ultricies. Sed pretium tellus sit amet ligula tempor tincidunt. Vivamus fringilla convallis nisl, ut pharetra libero feugiat a. Nunc non tempor nulla. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et tempus sapien. Maecenas cursus facilisis massa eu porta. Ut porta enim laoreet aliquam condimentum. In vestibulum dolor sit amet nibh maximus tincidunt. Vestibulum tincidunt arcu in urna vulputate ultricies. Sed pretium tellus sit amet ligula tempor tincidunt. Vivamus fringilla convallis nisl, ut pharetra libero feugiat a. Nunc non tempor nulla.
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et tempus sapien. Maecenas cursus facilisis massa eu porta. Ut porta enim laoreet aliquam condimentum. In vestibulum dolor sit amet nibh maximus tincidunt. Vestibulum tincidunt arcu in urna vulputate ultricies. Sed pretium tellus sit amet ligula tempor tincidunt. Vivamus fringilla convallis nisl, ut pharetra libero feugiat a. Nunc non tempor nulla. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et tempus sapien. Maecenas cursus facilisis massa eu porta. Ut porta enim laoreet aliquam condimentum. In vestibulum dolor sit amet nibh maximus tincidunt. Vestibulum tincidunt arcu in urna vulputate ultricies. Sed pretium tellus sit amet ligula tempor tincidunt. Vivamus fringilla convallis nisl, ut pharetra libero feugiat a. Nunc non tempor nulla.
-                </p>
-              </div>
-            </Fade>
-            <div>
-              <Fade triggerOnce direction='right'>
-                <Profile />
-                <div className='text-center p-7 '>
-                  <ul className='flex justify-between items-center  '>
-                    <li><a href="https://www.linkedin.com/in/brunosmp/"><AiOutlineLinkedin size={30} opacity={0.9} /></a></li>
-                    <li><a href="https://github.com/btsmp"><AiFillGithub size={30} opacity={0.9} /></a></li>
-                    <li><a href="https://wa.me/5582993191313"><AiOutlineWhatsApp size={30} opacity={0.9} /></a></li>
-                  </ul>
-                  <a
-                    href='/DesenvolvedorBruno.pdf' download={true}
-                    className=' flex items-center justify-center gap-2 p-2 bg-[#0A0A0A] hover:opacity-95 font-medium text-white rounded-md my-5 w-full cursor-pointer'>
-                    Baixar CV <AiOutlineDownload />
-                  </a>
-
-                </div>
-              </Fade>
-            </div>
+            <About />
+            <MeAndSocial />
           </Fade>
-        </section>
 
-        <section id="techs" className='mt-9 flex justify-center items-center flex-col'>
-          <h1 className=' font-bold text-xl md:text-6xl mb-10 text-center only:'>Tecnologias dominadas</h1>
+        </SectionWhite>
+
+
+        <Section id='techs'>
+          <Title title='Tecnologias dominadas' />
           <SectionCardsTechs />
+        </Section>
 
-        </section>
+        <Section id='projects' className='bg-white w-full h-full p-8 text-[#0A0A0A]'>
+          <Title title='Projetos' />
+          <div>
+            <div className='rounded-xl md:w-[500px] overflow-hidden border-[#0A0A0A] border-2' >
+              <div className='relative'>
+                <Image src={pokedexImg} />
+                <div className='bg-gradient-to-b from-transparent to-white w-full h-full absolute top-0'></div>
+                <h1 className='absolute w-full text-center bottom-0 p-3 font-bold  md:text-3xl '>Pokédex</h1>
+              </div>
+              <div className='py-4 px-6'>
+
+                <atricle>
+                  <strong>Sobre o projeto:</strong>
+                  <p className='text-justify mt-2'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et tempus sapien. Maecenas cursus facilisis massa eu porta. Ut porta enim laoreet aliquam condimentum. In vestibulum dolor sit amet nibh maximus tincidunt. Vestibulum tincidunt arcu in urna vulputate ultricies. Sed pretium tellus sit amet ligula tempor tincidunt. Vivamus fringilla convallis nisl, ut pharetra libero feugiat a. Nunc non tempor nulla. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et tempus sapien. Maecenas cursus facilisis massa eu porta. Ut porta enim laoreet aliquam condimentum. In vestibulum dolor sit amet nibh maximus tincidunt. Vestibulum tincidunt arcu in urna vulputate ultricies. Sed pretium tellus sit amet ligula tempor tincidunt. Vivamus fringilla convallis nisl, ut pharetra libero feugiat a. Nunc non tempor nulla.</p>
+                </atricle>
+                <article className='my-3'>
+                  <strong >Tecnologias utilizadas:</strong>
+                  <p className='text-justify mt-2'>React, ReactHooks, ContextAPI, Styled-Components</p>
+                </article>
+
+                <div className='w-full text-center'>
+
+                  <a href="" className='flex items-center justify-center gap-2 cursor-pointer font-medium hover:translate-x-2 duration-300'>Saiba mais <BsArrowRight /></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Section>
       </main>
 
-    </div >
+    </div>
   )
 }
 

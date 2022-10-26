@@ -1,3 +1,8 @@
+import { SiStyledcomponents, SiMysql, SiJest } from 'react-icons/si'
+import { DiNodejs, DiReact } from 'react-icons/di'
+import { CardTech } from '../components/CardTech'
+import { Fade } from 'react-awesome-reveal'
+import { ImGit } from 'react-icons/im'
 import {
   TbBrandJavascript,
   TbBrandHtml5,
@@ -6,11 +11,6 @@ import {
   TbBrandSass,
   TbBrandNextjs,
 } from 'react-icons/tb'
-import { DiNodejs, DiReact } from 'react-icons/di'
-import { SiStyledcomponents, SiMysql, SiJest } from 'react-icons/si'
-import { ImGit } from 'react-icons/im'
-import { CardTech } from '../components/CardTech'
-import { Fade, Slide } from 'react-awesome-reveal'
 
 export function SectionCardsTechs() {
   const techs = [
