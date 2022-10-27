@@ -14,7 +14,6 @@ import Image from 'next/image'
 import Head from 'next/head'
 
 const Home = ({ projects, about }) => {
-  console.log(about)
 
   return (
     <div className="min-h-screen font-sans bg-[#0A0A0A] text-white overflow-x-hidden">
@@ -44,7 +43,7 @@ const Home = ({ projects, about }) => {
         <SectionWhite classes='relative'>
           <div id='about' className='-z-10-1 absolute -top-36 '></div>
           <Fade triggerOnce>
-            <About about='eu' />
+            <About about={about.me} />
             <MeAndSocial />
           </Fade>
 
@@ -79,13 +78,11 @@ const client = new StrapiClient()
 export async function getStaticProps() {
   const projects = await client.fetchData('/api/projects?populate=*')
   const about = await client.fetchData('/api/about')
-  console.log(projects)
-  console.log('txou')
 
   return {
     props: {
       projects: projects.data,
-      about: about.data
+      about: about.data.attributes
     }, // will be passed to the page component as props
     revalidate: 60 * 60 * 24 // 1 day
   }

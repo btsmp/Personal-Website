@@ -4,8 +4,8 @@ import Image from 'next/image'
 
 export function CardProject({ data }) {
   const imgPath = data.cover.data.attributes.url
-  console.log(imgPath)
   const imgURL = `https://strapi-personaluse-bsmp.herokuapp.com${imgPath}`
+
   return (
     <div className='rounded-xl md:w-[500px] overflow-hidden border-[#0A0A0A] border-2' >
       <div className='relative'>
