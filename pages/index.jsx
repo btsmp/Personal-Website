@@ -4,6 +4,7 @@ import { SectionWhite } from '../components/SectionWhite'
 import { CardProject } from '../components/CardProject'
 import { MeAndSocial } from '../components/MeAndSocial'
 import { Section } from '../components/Section'
+import StrapiClient from '../lib/strapiClient'
 import { Footer } from '../components/Footer'
 import { Header } from '../components/Header'
 import { Title } from '../components/Title'
@@ -12,8 +13,8 @@ import { About } from '../components/About'
 import Image from 'next/image'
 import Head from 'next/head'
 
-
-const Home = () => {
+const Home = ({ projects, about }) => {
+  console.log(about)
 
   return (
     <div className="min-h-screen font-sans bg-[#0A0A0A] text-white overflow-x-hidden">
@@ -40,27 +41,29 @@ const Home = () => {
           </div>
 
         </section>
-        <SectionWhite id='about'>
+        <SectionWhite classes='relative'>
+          <div id='about' className='-z-10-1 absolute -top-36 '></div>
           <Fade triggerOnce>
-            <About />
+            <About about='eu' />
             <MeAndSocial />
           </Fade>
 
         </SectionWhite>
 
 
-        <Section id='techs'>
+        <Section className='relative'>
+          <div id='techs' className='-z-10-1 absolute -top-36 '></div>
           <Title title='Tecnologias dominadas' />
           <SectionCardsTechs />
         </Section>
 
-        <Section id='projects' className='bg-white w-full h-full p-8 text-[#0A0A0A]'>
+        <Section className='bg-white w-full h-full p-8 text-[#0A0A0A] relative'>
+          <div id='projects' className='-z-10-1 absolute -top-36 '></div>
           <Title title='Projetos' />
-          <div className='flex flex-wrap gap-16 justify-center items-center'>
-            <CardProject />
-            <CardProject />
-            <CardProject />
-            <CardProject />
+          <div className='flex flex-wrap gap-16 justify-center items-baseline'>
+            {projects.map(project => (
+              <CardProject key={project.id} data={project.attributes} />
+            ))}
           </div>
         </Section>
       </main>
@@ -70,5 +73,23 @@ const Home = () => {
     </div>
   )
 }
+
+const client = new StrapiClient()
+
+export async function getStaticProps() {
+  const projects = await client.fetchData('/api/projects?populate=*')
+  const about = await client.fetchData('/api/about')
+  console.log(projects)
+  console.log('txou')
+
+  return {
+    props: {
+      projects: projects.data,
+      about: about.data
+    }, // will be passed to the page component as props
+    revalidate: 60 * 60 * 24 // 1 day
+  }
+}
+
 
 export default Home
