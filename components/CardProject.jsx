@@ -1,4 +1,4 @@
-import pokedexImg from '../assets/pokedex.png'
+
 import { BsArrowRight } from 'react-icons/bs'
 import Image from 'next/image'
 
