@@ -3,8 +3,8 @@ import { Apresentation } from '../components/Apresetation'
 import { SectionWhite } from '../components/SectionWhite'
 import { CardProject } from '../components/CardProject'
 import { MeAndSocial } from '../components/MeAndSocial'
+import { FetchData } from '../lib/NotionApi'
 import { Section } from '../components/Section'
-import StrapiClient from '../lib/strapiClient'
 import { Footer } from '../components/Footer'
 import { Header } from '../components/Header'
 import { Title } from '../components/Title'
@@ -14,11 +14,10 @@ import Image from 'next/image'
 import Head from 'next/head'
 
 const Home = ({ projects, about }) => {
-
   return (
     <div className="min-h-screen font-sans bg-[#0A0A0A] text-white overflow-x-hidden">
       <Head>
-        <title>Bruno Sampaio</title>
+        <title>{about.name}</title>
         <link rel="icon" href="/codefolder.ico" />
       </Head>
 
@@ -29,7 +28,7 @@ const Home = ({ projects, about }) => {
           className='flex flex-col py-[30vh]  items-center justify-center w-full relative'
         >
 
-          <Apresentation />
+          <Apresentation name={about.name} />
           <div className='absolute -z-[-2] opacity-30 md:right-28 md:w-[400px] md:h-[400px] w-64 h-64'>
             <Image
               src='/programming.svg'
@@ -43,7 +42,7 @@ const Home = ({ projects, about }) => {
         <SectionWhite classes='relative'>
           <div id='about' className='-z-10-1 absolute -top-36 '></div>
           <Fade triggerOnce>
-            <About about={about.me} />
+            <About about={about.about} />
             <MeAndSocial />
           </Fade>
 
@@ -60,31 +59,33 @@ const Home = ({ projects, about }) => {
           <div id='projects' className='-z-10-1 absolute -top-36 '></div>
           <Title title='Projetos' />
           <div className='flex flex-wrap gap-16 justify-center items-baseline'>
-            {projects.map(project => (
-              <CardProject key={project.id} data={project.attributes} />
+            {projects && projects.map(project => (
+              <CardProject key={project.project_id} data={project.data} />
             ))}
           </div>
         </Section>
       </main>
 
-      <Footer />
+      <Footer name={about.footer} />
 
     </div>
   )
 }
 
-const client = new StrapiClient()
+const fetcher = new FetchData()
 
 export async function getStaticProps() {
-  const projects = await client.fetchData('/api/projects?populate=*')
-  const about = await client.fetchData('/api/about')
+  const projects = await fetcher.getProjects()
+  const about = await fetcher.getAbout()
 
   return {
     props: {
-      projects: projects.data,
-      about: about.data.attributes
-    }, // will be passed to the page component as props
-    revalidate: 60 * 60 * 24 // 1 day
+      projects,
+      about
+    },
+    revalidate: 60 * 60 * 4  // 4 hours
+
+
   }
 }
 

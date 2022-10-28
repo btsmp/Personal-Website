@@ -4,7 +4,7 @@ const nextConfig = {
   swcMinify: true,
   images: {
     loader: "default",
-    domains: ["strapi-personaluse-bsmp.herokuapp.com"],
+    domains: ["s3.us-west-2.amazonaws.com"],
   },
 }
 
