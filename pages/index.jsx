@@ -3,13 +3,14 @@ import { Apresentation } from '../components/Apresetation'
 import { SectionWhite } from '../components/SectionWhite'
 import { CardProject } from '../components/CardProject'
 import { MeAndSocial } from '../components/MeAndSocial'
-import { FetchData } from '../lib/NotionApi'
 import { Section } from '../components/Section'
 import { Footer } from '../components/Footer'
 import { Header } from '../components/Header'
+import { FetchData } from '../lib/NotionApi'
 import { Title } from '../components/Title'
 import { Fade } from 'react-awesome-reveal'
 import { About } from '../components/About'
+
 import Image from 'next/image'
 import Head from 'next/head'
 
@@ -25,7 +26,7 @@ const Home = ({ projects, about }) => {
       <main className='flex flex-col py-14  items-center justify-center w-full h-full gap-32'>
         <section
           id='home'
-          className='flex flex-col py-[30vh]  items-center justify-center w-full relative'
+          className='flex flex-col py-[30vh] h-[100vh-44px] items-center justify-center w-full relative'
         >
 
           <Apresentation name={about.name} />
@@ -49,14 +50,15 @@ const Home = ({ projects, about }) => {
         </SectionWhite>
 
 
-        <Section className='relative'>
-          <div id='techs' className='-z-10-1 absolute -top-36 '></div>
+        <Section className='relative h-screen' id='techs'>
           <Title title='Tecnologias dominadas' />
           <SectionCardsTechs />
         </Section>
 
-        <Section className='bg-white w-full h-full p-8 text-[#0A0A0A] relative'>
-          <div id='projects' className='-z-10-1 absolute -top-36 '></div>
+        <Section
+          id='projects'
+          className='bg-white w-full p-8 text-[#0A0A0A] relative min-h-screen'
+        >
           <Title title='Projetos' />
           <div className='flex flex-wrap gap-16 justify-center items-baseline'>
             {projects && projects.map(project => (
