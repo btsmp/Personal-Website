@@ -23,10 +23,10 @@ const Home = ({ projects, about }) => {
       </Head>
 
       <Header />
-      <main className='flex flex-col py-14  items-center justify-center w-full h-full gap-32'>
+      <main className='flex flex-col py-14 items-center justify-center w-full h-full gap-32'>
         <section
           id='home'
-          className='flex flex-col py-[30vh] h-screen items-center justify-center w-full relative'
+          className='flex flex-col py-[30vh] h-[100vh-20px] items-center justify-center w-full relative'
         >
 
           <Apresentation name={about.name} />
@@ -40,8 +40,8 @@ const Home = ({ projects, about }) => {
           </div>
 
         </section>
-        <SectionWhite classes='relative'>
-          <div id='about' className='-z-10-1 absolute -top-36 '></div>
+        <SectionWhite classes='relative' id='about'>
+
           <Fade triggerOnce>
             <About about={about.about} />
             <MeAndSocial />
