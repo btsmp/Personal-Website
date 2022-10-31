@@ -26,7 +26,7 @@ const Home = ({ projects, about }) => {
       <main className='flex flex-col py-14  items-center justify-center w-full h-full gap-32'>
         <section
           id='home'
-          className='flex flex-col py-[30vh] h-[100vh-44px] items-center justify-center w-full relative'
+          className='flex flex-col py-[30vh] h-screen items-center justify-center w-full relative'
         >
 
           <Apresentation name={about.name} />
@@ -50,7 +50,7 @@ const Home = ({ projects, about }) => {
         </SectionWhite>
 
 
-        <Section className='relative h-screen' id='techs'>
+        <Section className='relative min-h-screen' id='techs'>
           <Title title='Tecnologias dominadas' />
           <SectionCardsTechs />
         </Section>
