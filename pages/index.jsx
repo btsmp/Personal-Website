@@ -87,10 +87,7 @@ export async function getStaticProps() {
       about
     },
     revalidate: 60 * 60  // 1 hour
-
-
   }
 }
-
 
 export default Home
