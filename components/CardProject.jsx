@@ -11,7 +11,7 @@ export function CardProject({ data }) {
       <div className='relative'>
 
 
-        <Image src={imgURL} width={750} height={349} placeholder='blur' blurDataURL={imgURL} objectFit="cover" />
+        <Image src={imgURL} width={750} height={349} placeholder='blur' blurDataURL={imgURL} alt={`projeto ${project_title}`} objectFit="cover" />
         <div className='bg-gradient-to-b from-transparent to-white w-full h-full absolute top-0'></div>
         <h1 className='absolute w-full text-center bottom-0 p-3 font-bold  md:text-3xl '>{data.project_title}</h1>
       </div>
@@ -33,7 +33,7 @@ export function CardProject({ data }) {
 
         <div className='w-full text-center pt-2'>
 
-          <a href={data.project_repo} target='_blank' rel="noreferrer" className='flex items-center justify-center gap-2 cursor-pointer font-medium hover:translate-x-2 duration-300'>Saiba mais <BsArrowRight /></a>
+          <a href={data.project_repo} target='_blank' rel="noreferrer" className='flex items-center justify-center gap-2 cursor-pointer font-medium hover:translate-x-2 duration-300'>Veja mais <BsArrowRight /></a>
         </div>
       </div>
     </div>

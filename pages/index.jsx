@@ -57,7 +57,7 @@ const Home = ({ projects, about }) => {
 
         <Section
           id='projects'
-          className='bg-white w-full p-8 text-[#0A0A0A] relative min-h-screen'
+          className='bg-white w-full p-8 text-[#0A0A0A] relative min-h-screen pt-16'
         >
           <Title title='Projetos' />
           <div className='flex flex-wrap gap-16 justify-center items-baseline'>
