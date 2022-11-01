@@ -8,9 +8,9 @@ export function MeAndSocial() {
       <Profile />
       <div className='text-center p-7 '>
         <ul className='flex justify-between items-center  '>
-          <li><a href="https://www.linkedin.com/in/brunosmp/"><AiOutlineLinkedin size={30} opacity={0.9} /></a></li>
-          <li><a href="https://github.com/btsmp"><AiFillGithub size={30} opacity={0.9} /></a></li>
-          <li><a href="https://wa.me/5582993191313"><AiOutlineWhatsApp size={30} opacity={0.9} /></a></li>
+          <li><a href="https://www.linkedin.com/in/brunosmp/" target='_blank' rel="noopener"><AiOutlineLinkedin size={30} opacity={0.9} /></a></li>
+          <li><a href="https://github.com/btsmp" target='_blank' rel="noopener"><AiFillGithub size={30} opacity={0.9} /></a></li>
+          <li><a href="https://wa.me/5582993191313" target='_blank' rel="noopener"><AiOutlineWhatsApp size={30} opacity={0.9} /></a></li>
         </ul>
         <a
           href='/DesenvolvedorBruno.pdf' download={true}

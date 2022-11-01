@@ -80,6 +80,7 @@ export async function getStaticProps() {
   const projects = await fetcher.getProjects()
   const about = await fetcher.getAbout()
 
+
   return {
     props: {
       projects,
