@@ -86,7 +86,7 @@ export async function getStaticProps() {
       projects,
       about
     },
-    revalidate: 60 * 60 * 4  // 4 hours
+    revalidate: 60 * 60  // 1 hour
 
 
   }
