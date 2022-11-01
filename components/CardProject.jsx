@@ -33,7 +33,7 @@ export function CardProject({ data }) {
 
         <div className='w-full text-center pt-2'>
 
-          <a href={data.project_repo} target='_blank' rel="noopener" className='flex items-center justify-center gap-2 cursor-pointer font-medium hover:translate-x-2 duration-300'>Saiba mais <BsArrowRight /></a>
+          <a href={data.project_repo} target='_blank' rel="noreferrer" className='flex items-center justify-center gap-2 cursor-pointer font-medium hover:translate-x-2 duration-300'>Saiba mais <BsArrowRight /></a>
         </div>
       </div>
     </div>
